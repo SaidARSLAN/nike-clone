@@ -21,7 +21,7 @@ export default async function Home() {
           alt="Nike Video"
           width={1920}
           height={100}
-          className="z-[-9999] md:h-[150px] md:object-cover lg:h-[300px] xl:h-[500px]"
+          className="z-[-9999] md:h-[150px] md:object-cover lg:h-[300px] xl:h-[500px] lg:object-bottom"
         />
         <div className="absolute bottom-0 px-4 text-black py-4 md:top-0 md:py-0 lg:bottom-0 lg:top-24 xl:top-64">
           <p className=" text-xs md:hidden lg:block lg:text-sm">
@@ -30,9 +30,10 @@ export default async function Home() {
           <h3 className="text-3xl font-extrabold lg:text-5xl xl:text-7xl">
             EZBER BOZAN TASARIM
           </h3>
-          <p className="hidden md:block mt-4 lg:pr-[800px] xl:pr-[1440px]">
-            İkonik Shox TL, fütüristik silüetiyle zamanın ötesinde bir tasarım
-            ortaya koyuyor ve stil anlayışının sınırlarını zorluyor.
+          <p className="hidden md:block mt-4">
+            İkonik Shox TL, fütüristik silüetiyle zamanın ötesinde
+            <br className="hidden lg:block" /> bir tasarım ortaya koyuyor ve
+            stil anlayışının sınırlarını zorluyor.
           </p>
           <button className="bg-black text-white rounded-2xl w-[70px] py-1 text-sm md:mt-4">
             İncele
