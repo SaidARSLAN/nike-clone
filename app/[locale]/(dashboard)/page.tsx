@@ -5,6 +5,10 @@ import Link from "next/link";
 
 export default async function Home() {
   const t = await getTranslations("HomePage");
+  const firstDatas = await fetch("https://fakestoreapi.com/products");
+  if (!firstDatas.ok) throw new Error("Something happened bad");
+  const firstSliderDatas = await firstDatas.json();
+  console.log(firstSliderDatas);
   return (
     <div>
       <div className="px-6 text-center py-2 bg-gray-200 md:px-12">
@@ -28,7 +32,7 @@ export default async function Home() {
           <p className=" text-xs md:hidden lg:block lg:text-sm">
             Satışta: Shox TL
           </p>
-          <h3 className="text-3xl font-extrabold lg:text-5xl xl:text-7xl">
+          <h3 className="text-3xl font-extrabold lg:text-5xl xl:text-7xl mb-2">
             EZBER BOZAN TASARIM
           </h3>
           <p className="hidden md:block mt-4">
@@ -36,9 +40,12 @@ export default async function Home() {
             <br className="hidden lg:block" /> bir tasarım ortaya koyuyor ve
             stil anlayışının sınırlarını zorluyor.
           </p>
-          <button className="bg-black text-white rounded-2xl w-[70px] py-1 text-sm md:mt-4">
+          <Link
+            href="#"
+            className="bg-black text-white rounded-2xl px-3 py-1 text-sm  md:mt-4"
+          >
             İncele
-          </button>
+          </Link>
         </div>
       </div>
       <div className="px-5 mt-8 lg:mt-16">
@@ -58,18 +65,26 @@ export default async function Home() {
         <p className="text-center">{t("titleSecond")}</p>
       </div>
       <div className="flex flex-col mt-4 gap-2 items-center md:flex-row md:justify-center">
-        <button className="text-white bg-black w-[160px] rounded-2xl py-[2px]">
+        <Link
+          href="#"
+          className="text-white bg-black w-[160px] text-center rounded-2xl py-[2px]"
+        >
           Nike Mağazası Bul
-        </button>
-        <button className="text-white bg-black w-[200px] rounded-2xl py-[2px]">
+        </Link>
+        <Link
+          href="#"
+          className="text-white bg-black w-[200px] text-center rounded-2xl py-[2px]"
+        >
           Nike Satış Ortaklarını Bul
-        </button>
+        </Link>
       </div>
-      <Slider
-        header={"En Çok Satan Ürünler"}
-        context={"Tümünü Keşfet"}
-        datas={[]}
-      />
+      <div className="px-12">
+        <Slider
+          header={"En Çok Satan Ürünler"}
+          context={"Tümünü Keşfet"}
+          datas={firstSliderDatas}
+        />
+      </div>
     </div>
   );
 }
