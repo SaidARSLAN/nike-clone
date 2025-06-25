@@ -21,7 +21,7 @@ export default async function Home() {
           alt="Nike Video"
           width={1920}
           height={100}
-          className="z-[-9999] md:h-[150px] md:object-cover lg:h-[300px] xl:h-[500px] lg:object-bottom"
+          className="z-[-9999] md:h-[150px] md:object-cover lg:h-[300px] xl:h-[500px] "
         />
         <div className="absolute bottom-0 px-4 text-black py-4 md:top-0 md:py-0 lg:bottom-0 lg:top-24 xl:top-64">
           <p className=" text-xs md:hidden lg:block lg:text-sm">
@@ -40,11 +40,16 @@ export default async function Home() {
           </button>
         </div>
       </div>
-      <div className="px-5 mt-8">
+      <div className="px-5 mt-8 lg:mt-16">
         <h1 className="text-3xl font-extrabold text-center md:text-4xl lg:text-5xl xl:text-7xl">
           {t("title")}
         </h1>
-        <p className="text-center mt-2 lg:px-72">{t("titleFirst")}</p>
+        <p className="text-center mt-2 lg:px-72 lg:mt-6">
+          Türkiye gümrük mevzuatında yapılan son değişiklikler nedeniyle
+          maalesef şu an için
+          <br className="hidden xl:block" /> Nike.com ve Nike App üzerinden
+          alışveriş yapılamıyor.
+        </p>
         <p className="text-center  mt-4">
           Favori ürünlerini sana en yakın Nike mağazasında bulabilirsin.
           Mağazalarımıza ulaşamıyor ya da aradığın ürünü bulamıyor musun?
