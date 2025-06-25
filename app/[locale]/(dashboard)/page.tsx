@@ -1,3 +1,4 @@
+import Slider from "@/components/Sliders/Slider";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
@@ -64,6 +65,11 @@ export default async function Home() {
           Nike Satış Ortaklarını Bul
         </button>
       </div>
+      <Slider
+        header={"En Çok Satan Ürünler"}
+        context={"Tümünü Keşfet"}
+        datas={[]}
+      />
     </div>
   );
 }
