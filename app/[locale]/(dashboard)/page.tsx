@@ -2,6 +2,7 @@ import Slider from "@/components/Sliders/Slider";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
+import { shuffle } from "../../../utils/shuffe";
 
 export default async function Home() {
   const t = await getTranslations("HomePage");
@@ -84,6 +85,27 @@ export default async function Home() {
           context={"Tümünü Keşfet"}
           datas={firstSliderDatas}
         />
+      </div>
+      <div className="mt-24 pl-24 pr-12">
+        <Slider
+          header={"En Yeni Ve Mükemmel Ürünler"}
+          datas={shuffle(firstSliderDatas)}
+        />
+      </div>
+      <div className="mt-24 pl-24 pr-12">
+        <Slider
+          header={"İkonik Modellerimizi İncele"}
+          datas={shuffle(firstSliderDatas)}
+        />
+      </div>
+      <div className="mt-24 pl-24 pr-12">
+        <Slider
+          header={"Daha Fazlasını keşfet"}
+          datas={shuffle(firstSliderDatas)}
+        />
+      </div>
+      <div className="mt-24 pl-24 pr-12">
+        <Slider header={"Nike Üyeliği"} datas={shuffle(firstSliderDatas)} />
       </div>
     </div>
   );

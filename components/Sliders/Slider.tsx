@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 type data = {
   title: string;
@@ -12,14 +12,15 @@ type data = {
 
 interface Slider {
   header: string;
-  context: string;
+  context?: string;
   datas: data[];
 }
 
 const Slider = ({ header, context, datas }: Slider) => {
   const [allDatas, setAllDatas] = useState(datas);
+  const sliderRef = useRef<HTMLDivElement>(null);
+
   const handleReadMore = (idx: number, payload: boolean) => {
-    debugger;
     const foundedData = datas.find((_data, dataIdx) => dataIdx === idx);
     if (!foundedData) return;
     switch (payload) {
@@ -35,24 +36,58 @@ const Slider = ({ header, context, datas }: Slider) => {
 
     setAllDatas([...allDatas, foundedData]);
   };
+  const handleScroll = () => {
+    if (sliderRef.current) {
+      console.log("Scroll Left Position:", sliderRef.current.scrollLeft);
+    }
+  };
+
+  const scroll = (direction: "left" | "right") => {
+    if (sliderRef.current) {
+      const { scrollLeft, clientWidth } = sliderRef.current;
+
+      const scrollAmount = 300; // her tıklamada kaç px kayacak
+      if (direction === "left") {
+        sliderRef.current.scrollTo({
+          left: scrollLeft - scrollAmount,
+          behavior: "smooth",
+        });
+      } else {
+        sliderRef.current.scrollTo({
+          left: scrollLeft + scrollAmount,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
 
   return (
     <div className="flex flex-col">
       <div className="flex flex-row justify-between sticky">
         <h4 className="text-2xl mb-4">{header}</h4>
         <div className="flex gap-2 justify-center items-center mb-4">
-          <p>{context}</p>
+          {context ? <p>{context}</p> : ""}
           <div>
-            <button className="bg-gray-400 rounded-full w-[45px] h-[45px]">
+            <button
+              className="bg-gray-400 rounded-full w-[45px] h-[45px]"
+              onClick={() => scroll("left")}
+            >
               L
             </button>
-            <button className="bg-gray-400 rounded-full w-[45px] h-[45px] ml-4">
+            <button
+              className="bg-gray-400 rounded-full w-[45px] h-[45px] ml-4"
+              onClick={() => scroll("right")}
+            >
               R
             </button>
           </div>
         </div>
       </div>
-      <div className="flex gap-2  overflow-scroll">
+      <div
+        className="flex gap-2  overflow-scroll"
+        ref={sliderRef}
+        onScroll={handleScroll}
+      >
         {allDatas.map((data, idx) => {
           return (
             <div key={data.title + idx + Math.random()}>
