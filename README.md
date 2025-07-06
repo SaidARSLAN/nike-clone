@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### ✅ Tech Stack
+
+* **Framework**: [Next.js 15.3.4](https://nextjs.org/)
+* **Language**: TypeScript
+* **Styling**: Tailwind CSS
+* **Other tools**:
+
+  * `postcss` (for CSS processing)
+  * ESLint (for code linting)
+  * `next-intl` (for internationalization)
+
+You also use **Turbopack** as the dev server (`next dev --turbo`), which is a newer build tool from Vercel.
+
+---
+
+### 📝 Example README (English, simple)
+
+````markdown
+# Nike Clone
+
+This is a simple Nike website clone built with **Next.js**, **Tailwind CSS**, and **TypeScript**.
+
+## Features
+
+- Built using **Next.js 15**
+- Uses **Tailwind CSS** for styling
+- Internationalization support with **next-intl**
+- Fast development with **Turbopack**
+- TypeScript for type safety
 
 ## Getting Started
 
-First, run the development server:
+First, install the dependencies:
+
+```bash
+npm install
+````
+
+Then, start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To build for production:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To start the production server:
 
-## Learn More
+```bash
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+To lint the code:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run lint
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+```bash
+nike-clone/
+├── pages/          # Next.js pages (routes)
+├── public/         # Static assets
+├── styles/         # Tailwind and custom styles
+├── components/     # React components
+├── locales/        # Translation files (if using next-intl)
+├── tsconfig.json   # TypeScript config
+└── package.json    # Project config and dependencies
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is for educational use only.
+
+```
+
+---
+
+```
