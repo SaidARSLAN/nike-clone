@@ -12,7 +12,7 @@ export default async function Home() {
   console.log(firstSliderDatas);
   return (
     <div>
-      <div className="px-6 text-center py-2 bg-gray-200 md:px-12">
+      <div className="px-6 text-center py-2 bg-gray-100 md:px-12">
         <p className="text-sm">
           Türkiye’de Nike.com ve Nike App üzerinden şu an için alışveriş
           yapılamamaktadır.
