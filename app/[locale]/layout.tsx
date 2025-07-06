@@ -19,9 +19,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body>
-        <div>Header</div>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
-        <div>Footer</div>
       </body>
     </html>
   );
