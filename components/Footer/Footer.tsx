@@ -43,7 +43,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="h-[1px] bg-gray-200"></div>
+      <div className="h-[1px] bg-gray-200 mx-10"></div>
       <div className="flex justify-between pt-12 px-12">
         <div>
           <h4>Kaynaklar</h4>
