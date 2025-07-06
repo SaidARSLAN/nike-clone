@@ -1,5 +1,7 @@
 "use server";
 
+import { pool } from "./db";
+
 type FormState = {
   message: string;
 };
@@ -14,6 +16,10 @@ export async function sendMailToClient(
       return {
         message: "Email need",
       };
+
+    const result = await pool.query("Select * from test");
+    console.log(result.rows);
+
     return { message: "Success" };
   } catch (err: any) {
     return { message: err.message };
